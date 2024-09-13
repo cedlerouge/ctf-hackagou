@@ -160,4 +160,25 @@ unzip 2001 times => OPENNC{D4n5_L4_C4P174L3}
 ## Dé&Ness
 
 
+deness est un fichier pcapng que l'on peut lire avec `tcpdump -r deness.pcapng` ou avec `wireshark deness.pcapng`
+L'ensemble des questions/réponses "DNS" nous donne le code ci-dessous qui ressemble `q du base64  
+code : T1BFTk5De0RuU18wYmZVNWM0NzEwbnf0=
 
+```
+echo T1BFTk5De0RuU18wYmZVNWM0NzEwbn0= | base64 -d 
+OPENNC{DnS_0bfU5c4710n}
+```
+
+
+## UnitedOrCity
+
+codage Manchester : 
+propose une inversion du signal systématique au milieu de la période d'horloge, ce qui garantit l'impossibilité d'avoir un signal continue. Pour transmettre un 1, il s'agira d'un front montant, et pour transmettre un 0, d'un front descendant
+ref : 
+* www.guill.net
+* https://fr.wikipedia.org/wiki/Codage_Manchester
+
+code : 10110001100110101000111111001111
+
+1011 0001 1001 1010 1000 1111 1100 1111
+29 79 69 65 91
