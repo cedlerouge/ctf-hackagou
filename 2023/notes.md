@@ -10,6 +10,7 @@ réponse : `OPENNC{Wh47_15_45c11?!}`
 ## Julius
 
 code : `BCRAAP{p4rf4e_p1cu3e_15_345l}`
+
 Cf le nom du défi et ce à quoi à ressemble : c'est du code "César"
 
 cela ressemble au flg précédent 
@@ -21,6 +22,8 @@ Alphbet decale +13
 réponse : `OPENNC{c4es4r_c1ph3r_15_345y}`
 
 ## LostPassword 
+
+=> cf intitulé : recombinaisons à tester selon les indices de l'intitulé
 
 OPENNC{1985MassisPirates}
 OPENNC{Pirates1985Massis}
