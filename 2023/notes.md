@@ -204,22 +204,26 @@ OPENNC{DnS_0bfU5c4710n}
 
 ## UnitedOrCity
 
-codage Manchester : 
-propose une inversion du signal systématique au milieu de la période d'horloge, ce qui garantit l'impossibilité d'avoir un signal continue. Pour transmettre un 1, il s'agira d'un front montant, et pour transmettre un 0, d'un front descendant
+*codage Manchester* : 
+propose une inversion du signal systématique au milieu de la période d'horloge, ce qui garantit l'impossibilité d'avoir un signal continue. Pour transmettre un 1, il s'agira d'un front montant, et pour transmettre un 0, d'un front descendant. 
+Le code peut être inversé suivnat l'usage 
 ref : 
 * www.guill.net
 * https://fr.wikipedia.org/wiki/Codage_Manchester
 
-code         : 10110001100110101000111111001111
-code inverse : 01001110011001010111000000110000
+De l'image signal.png, il ressort le code suivant 
 
-bin to text : Nep0
+* code         : `10110001100110101000111111001111`
+* code inverse : `01001110011001010111000000110000`
 
+Utilisation d'un outil en ligne pour convertir du binaire en text.
+Appliqué au code inversé, nous donne  `Nep0`
+
+Le md5 de ce dernier résultat, nous donne la valeur du flag 
+
+```
 t=$(echo -n Nep0| md5sum| awk  '{print $1}'); echo "OPENNC{$t}"
-
-1011 0001 1001 1010 1000 1111 1100 1111
-29 79 69 65 91
-
+```
 
 
 ## Goalcausse
@@ -230,21 +234,32 @@ retrouver une rue depuis une photo
 2. via google street trouver l'angle
 3. retrouver une impasse via la trajectoire
 
-réponse : OPENNC{SunriseBoulevard}
+réponse : `OPENNC{SunriseBoulevard}`
 
 
 ## Hiddn
 
-linkedin capt'n nemo 
-=> contact info => url site web => blog 
-https://openntpac.wordpress.com/2023/04/09/tresor-cache-a-la-station-n/
 
-about ME => adresse email en gmail 
+* linkedin capt'n nemo
+* contact info => url site web => blog 
 
-+> epios recherche info compte gmail 
+### Le blog
+
+le seul article du blog : https://openntpac.wordpress.com/2023/04/09/tresor-cache-a-la-station-n/
+Nous donne des informations sur le lieu et sur une date relative
+
+En allant sur la page `about ME` on découvre l'adresse email
+
+### EPIOS
+
+L'outil EPIOS nous permet de retrouver tout ce qui est publique dans google pour une adresse email 
+
+On y retrouve un avis dans google maps
 => google map + avis (entre cyclone judy et kevin => 03/03/2023)
+
 Le blog indique que le tresor a été decouvert la veille et donc est entéré le 04/03/2023 à la station n
-OPENNC{04032023_stationn}
+
+réponse : `OPENNC{04032023_stationn}`
 
 
 
@@ -252,7 +267,7 @@ OPENNC{04032023_stationn}
 
 code : 160 172 104 107 106 70 104 20 70 126 81 20 85 106 106 81 20 126 81 106 70 106 104 85 106 169 106 117 162 122 113 113 120 119 118
 
-On a le script qui a généré le code : 
+le script qui a généré le code indique qu'on appelle 3 fonctions  : 
 
 ```
 print(fun3(fun2(fun1(flag))))
@@ -262,17 +277,20 @@ En s'appuyant sur le script, il faut donc faire l'inverse
 
 ```
 a="160 172 104 107 106 70 104 20 70 126 81 20 85 106 106 81 20 126 81 106 70 106 104 85 106 169 106 117 162 122 113 113 120 119 118
-                                                                                                                                   
-la = a.split(" ")                                                                                                                  
-print(la)                                                                                                                          
-lb = []                                                                                                                            
-for i in la:                                                                                                                       
-    lb.append(int(i))                                                                                                              
-b = fun3(lb)                                                                                                                       
-print(type(b))                                                                                                                     
+
+la = a.split(" ")
+print(la)
+lb = []
+for i in la:
+    lb.append(int(i))
+b = fun3(lb)
+print(type(b))
 
 ```
-OPENNC{R3v3r53_3nG1n33r1nG_15_345y}
+
+L'exécution du script nous donne ceci : 
+
+réponse : `OPENNC{R3v3r53_3nG1n33r1nG_15_345y}`
 
 
 
@@ -290,7 +308,11 @@ superimposed : OPENNC{57eGan0_0bfU5c4710n}
 
 ## Singeblase 
 
-recherche google 
+recherche google
+
+```
 t=$(echo -n 0.05ETH| md5sum| awk  '{print $1}'); echo "OPENNC{$t}"
+```
+
 
 
