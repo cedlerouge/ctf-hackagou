@@ -134,6 +134,14 @@ Quels sont les sponsors  ?
 Par quelle organisation a été créé le HacKagou ?
 => liste selection unique
 
+
+## Espion
+
+```
+curl -A "007" http://challs.hackagou.nc:5004
+```
+
+
 ## Burryit 
 
 fichier à telecharger : buryit
@@ -154,35 +162,7 @@ buryit: XZ compressed data, checksum CRC64
 il faut faire un script ; 
 
 ```
-cat > buryit.sh <<EOF
-#!/bin/bash 
-
-incr=0
-ret=0
-while [ $ret -eq 0 ];
-#while [ $incr -lt 5 ]
-do
-  if [ -f buryit ]; then
-    ext=$(file buryit | awk '{print tolower($2)}') 
-    if [ $ext == "gzip" ]; then 
-      mv buryit buryit.gz
-      gzip -d buryit.gz
-    elif [ $ext == "xz" ]; then
-      mv buryit buryit.xz
-      xz -d buryit.xz
-    fi
-  fi
-  file buryit | grep "compressed" > /dev/null 2>&1
-  ret=$?
-  incr=$((incr+1))
-  #file buryit
-  echo -n .
-done 
-file buryit
-echo -n "unzip $incr times => "
-cat buryit
-EOF
-
+cd burryit
 bash buryit.sh
 ......buryit: ASCII text
 unzip 2001 times => OPENNC{D4n5_L4_C4P174L3}
@@ -194,7 +174,13 @@ unzip 2001 times => OPENNC{D4n5_L4_C4P174L3}
 
 deness est un fichier pcapng que l'on peut lire avec `tcpdump -r deness.pcapng` ou avec `wireshark deness.pcapng`
 L'ensemble des questions/réponses "DNS" nous donne le code ci-dessous qui ressemble `q du base64  
-code : T1BFTk5De0RuU18wYmZVNWM0NzEwbnf0=
+
+```
+tcpdump -qns 0 -A -r  2023/deness/deetness.pcapng 2>&1 | grep -v "IP 172\|reading" | sed -e "s#^.*\([A-Za-z=0-9]\)\.com.*#\1#" | xargs  | sed "s/ //g"
+T1BFTk5De0RuU18wYmZVNWM0NzEwbnf0=
+```
+
+code : `T1BFTk5De0RuU18wYmZVNWM0NzEwbnf0=`
 
 ```
 echo T1BFTk5De0RuU18wYmZVNWM0NzEwbn0= | base64 -d 
