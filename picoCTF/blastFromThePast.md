@@ -84,3 +84,5 @@ Great job, you got that one!
 You did it!
 ```
 
+
+ref pour le dernier point : https://medium.com/@0xVirtu4l/picoctf-2024-blast-from-the-past-challenge-solve-6bb022ae520d
