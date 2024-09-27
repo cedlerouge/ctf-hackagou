@@ -16,6 +16,10 @@ Il faut également modifier les `Sub Sec Time` en les passant à `001`
 exiftool -overwrite_original -createdate="1970:01:01 00:00:00.001Z" -modifydate="1970:01:01 00:00:00.001Z" -FileModifydate="1970:01:01 00:00:00.001Z" -SubSecTime=001 -datetimeoriginal="1970:01:01 00:00:00.001Z" -SubSecTimeOriginal=001 -SubSecTimeDigitized=001  ~/Downloads/original.jpg
 ```
 
+NB: autre option : 
+```
+exiftool -AllDates="1970-01-01 00:00:00" -overwrite_original ~/Downloads/original.jpg
+``` 
 
 Et il reste une date cachée que l'on retrouve via la commande `exiftool -ee  ~/Downloads/original.jpg  | grep Time`
 
